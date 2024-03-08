@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My page</title>
+</head>
+<body>
+    <h1>Lista de pontos</h1>
+    <ul>
+        {% for ponto in pontos %}
+            <li>{{ ponto.x }}, {{ ponto.y }}, {{ ponto.z }}, {{ ponto.r }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/novo">Cadastrar novo ponto</a>
+    
+</body>
+</html>
