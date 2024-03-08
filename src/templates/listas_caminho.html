@@ -8,11 +8,10 @@
 <body>
     <h1>Lista de pontos</h1>
     <ul>
-        {% for ponto in pontos %}
-            <li>{{ ponto.x }}, {{ ponto.y }}, {{ ponto.z }}, {{ ponto.r }}</li>
+        {% for caminho in caminhos %}
+            <li>{{ caminho.x }}, {{ caminho.y }}, {{ caminho.z }}, {{ caminho.r }}</li>
         {% endfor %}
     </ul>
-    <a href="/novo">Cadastrar novo ponto</a>
     
 </body>
 </html>

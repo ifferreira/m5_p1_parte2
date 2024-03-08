@@ -34,7 +34,8 @@ def update():
     y = request.form['y']
     z = request.form['z']
     r = request.form['r']
-    db.update({'x': x, 'y': y, 'z': z, 'r': r})
+    id_caminho = request.form['id']
+    db.update({'x': x, 'y': y, 'z': z, 'r': r}, doc_ids=id_caminho)
     return redirect(url_for('index'))
 
 # rota deletar
@@ -46,15 +47,15 @@ def delete():
 
 # rota para listar conforme o id
 @app.route('/pegar_caminho/<int:id>')
-def listar(id):
-    caminho = db.get(doc_id=id)
+def pegar_caminho(id):
+    caminho = db.get(doc_id=[id])
     return render_template('listas_caminho.html', caminho=caminho)
 
 # rota listar
 @app.route('/listas_caminhos')
 def index():
-    pontos = db.all()
-    return render_template('listas_caminho.html', pontos=pontos)
+    caminhos = db.all()
+    return render_template('listas_caminho.html', caminhos=caminhos)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
